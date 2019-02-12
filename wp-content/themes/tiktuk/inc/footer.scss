@@ -1,0 +1,28 @@
+footer{
+    clear: both;
+    float: left;
+    width: 100%;
+    background: #000;
+    color: #fff;
+    margin-top: 4rem;
+    a{
+        color: #fff;
+        &:hover{
+            opacity: 0.8;
+        }
+    }
+    .copyright{
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        float: left;
+        width: 100%;
+        span{
+            margin: 1.6rem 0;
+        }
+
+        @media only screen and (max-width: 990px) {
+            flex-direction: column;
+        }
+    }
+}
