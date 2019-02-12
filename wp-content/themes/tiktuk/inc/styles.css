@@ -10,6 +10,10 @@ main {
   width: 100%;
 }
 
+h1.single-h1 {
+  margin: 2rem 0 1rem;
+}
+
 .home-search-bar {
   background: #7d9e07;
   padding: 2rem 15px;
@@ -120,9 +124,9 @@ main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   margin-bottom: 2rem;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
@@ -244,6 +248,7 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin: 6rem 0 2rem;
 }
 
 .custom-pagination .page-numbers {
@@ -296,6 +301,33 @@ main {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+}
+
+.container.single-post {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.post-info {
+  float: left;
+  width: 100%;
+  margin: 2rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.post-info span {
+  padding-right: 15px;
+}
+
+.rel-post-item {
+  width: calc(25% - 15px);
 }
 
 header {

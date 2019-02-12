@@ -14,13 +14,13 @@
         <form class="search-dropdown-form">
         <div class="search-select-wrap">
             <div class="search-select-box">
-                <?php wp_dropdown_categories( 'show_count=1&hierarchical=1&show_option_none=Choose a category' ); ?>
+                <?php wp_dropdown_categories( 'show_count=1&hierarchical=1&value_field=slug&id=filter-cat&show_option_none=Choose a category' ); ?>
             </div>
             <div class="search-select-box" id="tag-dropdown">
-                <?php wp_dropdown_categories( 'taxonomy=post_tag' ); ?>
+                <?php wp_dropdown_categories( 'taxonomy=post_tag&id=filter-tag&value_field=slug' ); ?>
             </div>            
             <div class="search-select-box">
-                <button type="submit" form="form1" value="Submit">Quick search</button>
+                <button id="filter-submit" type="submit" form="form1" value="Submit">Quick search</button>
             </div>            
         </div>
         </form>
@@ -53,7 +53,7 @@
             <div class="posts-item">
 
                 <?php
-                $featured_img_url = get_the_post_thumbnail_url('full'); 
+                $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'front-size'); 
                 $featured_img_url = $featured_img_url ?: get_template_directory_uri() .'/img/sample-320-240.jpg';
 
                 $postPerma = get_the_permalink();

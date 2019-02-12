@@ -20,6 +20,12 @@ main{
 
 }
 
+h1{
+    &.single-h1{
+        margin: 2rem 0 1rem;
+    }
+}
+
 .home-search-bar {
 	background: #7d9e07;
     padding: 2rem 15px;
@@ -99,7 +105,7 @@ main{
 
     .posts-item{
         display: flex;
-        align-items: stretch;
+        align-items: flex-start;
         margin-bottom: 2rem;
         flex-wrap: wrap;
         &::after{
@@ -200,6 +206,7 @@ main{
 	display: flex;
 	justify-content: center;
     align-items: center;
+    margin: 6rem 0 2rem;
 
     .page-numbers {
         padding: 8px 15px;
@@ -248,6 +255,29 @@ main{
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+}
+
+.container{
+    &.single-post{
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+    }
+}
+
+.post-info {
+	float: left;
+	width: 100%;
+	margin: 2rem 0;
+	display: flex;
+	justify-content: flex-start;
+    flex-wrap: wrap;
+    span{
+        padding-right: 15px;
+    }
+}
+
+.rel-post-item{
+    width: calc(25% - 15px);
 }
 
 @import "header";

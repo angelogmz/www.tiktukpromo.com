@@ -3,8 +3,8 @@
 
 				<!-- copyright -->
 				<div class="copyright col-10 offset-1">
-					<span>&copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?></span>
-					<span>J Max Technologies</span>
+					<span>&copy; <?php echo date('Y'); ?> Copyright <?php /*bloginfo('name');*/ ?></span>
+					<span>Company Name</span>
 				</div>
 				<!-- /copyright -->
 
@@ -24,6 +24,7 @@
 		<script defer src='<?php echo get_template_directory_uri(); ?>/js/lib/conditionizr-4.3.0.min.js?ver=4.9.8'></script>
 		<script defer src='<?php echo get_template_directory_uri(); ?>/js/lib/modernizr-2.7.1.min.js?ver=4.9.8'></script>
 		
+		
 
 
 		<script defer src='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js?ver=4.9.8'></script>
@@ -31,6 +32,7 @@
 
 		<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
 		
+		<script defer src='<?php echo get_template_directory_uri(); ?>/js/scripts.js'></script>
 
         <script>
         WebFont.load({
@@ -48,7 +50,8 @@
 		});
 		</script>
 
-		<script defer src='<?php echo get_template_directory_uri(); ?>/js/scripts.js'></script>
+		
+		
 		<?php wp_footer(); ?>
 
 		<!-- analytics -->
@@ -61,5 +64,7 @@
 		ga('send', 'pageview');
 		</script>
 
+		<script defer src='<?php echo get_template_directory_uri(); ?>/js/custom.js'></script>
+		
 	</body>
 </html>

@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 	<main role="main">
-<div class="container">
+<div class="container single-post">
     <div class="container-inner-wrap">
 		<div class="col-12 col-sm-12 col-lg-8">
 
@@ -15,35 +15,30 @@
 
 			<!-- post thumbnail -->
 			<?php if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
-				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-					<?php the_post_thumbnail(); // Fullsize image for the single post ?>
-				</a>
+			<div class="post-thumb">
+				<?php the_post_thumbnail(); // Fullsize image for the single post ?>			
+			</div>
 			<?php endif; ?>
 			<!-- /post thumbnail -->
 
 			<!-- post title -->
-			<h1>
-				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-			</h1>
+			<h1 class="single-h1"><?php the_title(); ?></h1>
 			<!-- /post title -->
 
 			<!-- post details -->
-			<span class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span>
-			<span class="author"><?php _e( 'Published by', 'html5blank' ); ?> <?php the_author_posts_link(); ?></span>
-			<span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'html5blank' ), __( '1 Comment', 'html5blank' ), __( '% Comments', 'html5blank' )); ?></span>
-			<!-- /post details -->
+			
+			<div class="post-info">
+				<span class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span>
+				<span><?php the_tags( __( 'Location : ', 'html5blank' ), ', ', ''); // Separated by commas ?></span>
+				<span><?php _e( 'Categorised in: ', 'html5blank' ); the_category(', '); // Separated by commas ?></span>
+				<span><?php _e( 'Advertised by ', 'html5blank' ); the_author(); ?></span>
+			</div>
 
 			<?php the_content(); // Dynamic Content ?>
 
-			<?php the_tags( __( 'Tags: ', 'html5blank' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
 
-			<p><?php _e( 'Categorised in: ', 'html5blank' ); the_category(', '); // Separated by commas ?></p>
-
-			<p><?php _e( 'This post was written by ', 'html5blank' ); the_author(); ?></p>
 
 			<?php edit_post_link(); // Always handy to have Edit Post Links available ?>
-
-			<?php comments_template(); ?>
 
 		</article>
 		<!-- /article -->
@@ -64,6 +59,45 @@
 
 	</section>
 	<!-- /section -->
+
+	<section>
+		<?php
+		//for use in the loop, list 5 post titles related to first tag on current post
+		$tags = wp_get_post_tags($post->ID);
+		$pCat = get_the_category($post->ID);
+
+		if ($tags) {
+		echo 'Related Posts';
+		$first_tag = $tags[0]->term_id;
+		$first_cat = $pCat[0]->slug;
+		
+		$args=array(
+		'category__and' => $pTag,
+		'tag__in' => array($first_tag),
+		'post__not_in' => array($post->ID),
+		'posts_per_page'=>4,
+		'caller_get_posts'=>1
+		);
+		$my_query = new WP_Query($args);
+		if( $my_query->have_posts() ) {
+		while ($my_query->have_posts()) : $my_query->the_post();
+		
+		?>
+		
+		<div class="rel-post-item">
+		<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
+		<?php the_post_thumbnail('feat-size'); // Fullsize image for the single post ?>
+		<?php the_title(); ?>
+		</a>
+		</div>
+		
+		<?php
+		endwhile;
+		}
+		wp_reset_query();
+		}
+		?>
+	</section>
 
 	</div>
 
