@@ -66,8 +66,10 @@
 		$tags = wp_get_post_tags($post->ID);
 		$pCat = get_the_category($post->ID);
 
-		if ($tags) {
-		echo 'Related Posts';
+		if ($tags) { ?>
+		<div class="similar-ads-section">
+		<h2>More suggestions :</h2>
+		<?php
 		$first_tag = $tags[0]->term_id;
 		$first_cat = $pCat[0]->slug;
 		
@@ -83,18 +85,34 @@
 		while ($my_query->have_posts()) : $my_query->the_post();
 		
 		?>
-		
-		<div class="rel-post-item">
-		<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
-		<?php the_post_thumbnail('feat-size'); // Fullsize image for the single post ?>
-		<?php the_title(); ?>
+		<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">	
+			<div class="rel-post-item">
+				<div class="rel-post-thumb">
+						<?php
+						// Must be inside a loop.
+						
+						if ( has_post_thumbnail() ) {
+							the_post_thumbnail('feat-size'); // Fullsize image for the single post
+						}
+						else {
+								echo '<img src="' . get_bloginfo( 'stylesheet_directory' ) 
+										. '/img/sample-320-240.jpg" />';
+						}
+						?>
+					
+				</div>
+				<div class="rel-post-title">
+					<h3><?php the_title(); ?></h3>
+				</div>
+			</div>	
 		</a>
-		</div>
-		
 		<?php
 		endwhile;
 		}
 		wp_reset_query();
+		?>
+		</div>
+		<?php
 		}
 		?>
 	</section>
