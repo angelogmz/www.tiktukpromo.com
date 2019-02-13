@@ -18,6 +18,13 @@ main{
     float: left;
     width: 100%;
 
+    a{
+        color: #7d9e07;
+        &.view-article{
+            color: #596a1f;
+        }
+    }
+
 }
 
 h1{
@@ -343,7 +350,7 @@ h1{
         }
         input,textarea,select{
             width: calc(100% - 14em);
-            float: left;
+            float: right;
             padding: 5px 1em;
             border: 1px solid #e1e1e1;
             border-radius: 4px;
@@ -355,9 +362,6 @@ h1{
             }
         }
         .usp-captcha{
-            display: flex;
-            justify-content: center;
-            align-items: center;
             background: #f6f6f6;
             padding: 2rem 15px;
             width: auto;
@@ -412,6 +416,17 @@ h1{
             color: #f00;
             margin: 4rem 0;
             float: left;
+        }
+        #usp_add-another {
+            clear: both;
+            float: right;
+            margin: 1rem 0;
+        }
+        #user-submitted-image{
+            width: 100%;
+            input{
+                width: 100%;
+            }
         }
     }
 }

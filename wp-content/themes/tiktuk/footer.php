@@ -3,8 +3,8 @@
 
 				<!-- copyright -->
 				<div class="copyright col-10 offset-1">
-					<span>&copy; <?php echo date('Y'); ?> Copyright <?php /*bloginfo('name');*/ ?></span>
-					<span>Company Name</span>
+					<span>&copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?></span>
+					<span>J Max Technologies</span>
 				</div>
 				<!-- /copyright -->
 

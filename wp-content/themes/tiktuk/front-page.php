@@ -94,7 +94,7 @@
                         </div>
                         
 
-                        <?php the_excerpt(); ?>
+                        <?php html5wp_excerpt('html5wp_index'); ?>
                     </div>
                 </div>
             </div>

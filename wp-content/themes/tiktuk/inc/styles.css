@@ -10,6 +10,14 @@ main {
   width: 100%;
 }
 
+main a {
+  color: #7d9e07;
+}
+
+main a.view-article {
+  color: #596a1f;
+}
+
 h1.single-h1 {
   margin: 2rem 0 1rem;
 }
@@ -416,7 +424,7 @@ h1.single-h1 {
 
 #user-submitted-posts form input, #user-submitted-posts form textarea, #user-submitted-posts form select {
   width: calc(100% - 14em);
-  float: left;
+  float: right;
   padding: 5px 1em;
   border: 1px solid #e1e1e1;
   border-radius: 4px;
@@ -433,15 +441,6 @@ h1.single-h1 {
 }
 
 #user-submitted-posts form .usp-captcha {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   background: #f6f6f6;
   padding: 2rem 15px;
   width: auto;
@@ -511,6 +510,20 @@ h1.single-h1 {
   color: #f00;
   margin: 4rem 0;
   float: left;
+}
+
+#user-submitted-posts form #usp_add-another {
+  clear: both;
+  float: right;
+  margin: 1rem 0;
+}
+
+#user-submitted-posts form #user-submitted-image {
+  width: 100%;
+}
+
+#user-submitted-posts form #user-submitted-image input {
+  width: 100%;
 }
 
 .similar-ads-section {
@@ -666,7 +679,7 @@ header .main-menu nav ul li {
 
 @media only screen and (min-width: 1501px) and (max-width: 1560px) {
   header .main-menu nav ul li {
-    font-size: 0.8em;
+    font-size: 1.15em;
   }
 }
 
